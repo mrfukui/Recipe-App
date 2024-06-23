@@ -29,3 +29,15 @@ class RecipeModelTest(TestCase):
     # Check to make sure cooking_time is a positive integer
     self.assertGreater(cooking_time, 0)
 
+  def test_get_absolute_url(self):
+     
+     recipe = Recipe.objects.get(id=1)
+
+     self.assertEqual(recipe.get_absolute_url(), '/recipes/1')
+
+  def test_difficulty_calculation(self):
+     
+     recipe = Recipe.objects.get(id=1)
+
+     self.assertEqual(recipe.calculate_difficulty(), 'Hard')
+

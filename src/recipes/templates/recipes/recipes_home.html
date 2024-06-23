@@ -1,14 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fukui's Recipe App</title>
+    <link rel="stylesheet" href="{% static 'recipes/css/styles.css' %}" />
   </head>
   <body>
-    <div>
-      <h1>Fukui's Recipe App</h1>
+    <div class="header">
+      <h1>The Recipes</h1>
     </div>
-    <div><p>Recipes will go here</p></div>
+    <div class="container">
+      <div class="grid">
+        {% for object in object_list %}
+        <div class="card">
+          <a href="{{ object.get_absolute_url }}">
+            <img src="{{ object.pic.url }}" alt="{{ object.name }}" />
+            <div class="card-content">
+              <h5 class="card-title">{{ object.name }}</h5>
+              <p class="card-text">
+                Cooking time: {{ object.cooking_time }} mins
+              </p>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
   </body>
 </html>
