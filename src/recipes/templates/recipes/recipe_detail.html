@@ -11,6 +11,15 @@
     />
   </head>
   <body>
+    <nav class="navbar">
+      <a href="{% url 'recipes:recipe_list' %}" class="navbar-title"
+        >Fukui's Recipe App</a
+      >
+      <div class="navbar-links">
+        <a href="{% url 'recipes:recipe_list' %}">Home</a>
+        <a href="{% url 'logout' %}">Logout</a>
+      </div>
+    </nav>
     <div class="recipe-detail-container">
       <div
         class="recipe-image"

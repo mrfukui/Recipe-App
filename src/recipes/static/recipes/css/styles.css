@@ -3,20 +3,33 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.header {
+.navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: #00c04b;
+  background-color: #009200;
+  padding: 10px 20px;
   color: #fff;
-  text-align: center; /* Ensure text is centered within the flex container */
 }
 
-.header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  font-weight: bold;
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #495057;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 10px;
 }
 
 .container {

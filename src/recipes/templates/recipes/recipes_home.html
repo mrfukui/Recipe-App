@@ -8,9 +8,15 @@
     <link rel="stylesheet" href="{% static 'recipes/css/styles.css' %}" />
   </head>
   <body>
-    <div class="header">
-      <h1>The Recipes</h1>
-    </div>
+    <nav class="navbar">
+      <a href="{% url 'recipes:recipe_list' %}" class="navbar-title"
+        >Fukui's Recipe App</a
+      >
+      <div class="navbar-links">
+        <a href="{% url 'recipes:recipe_list' %}">Home</a>
+        <a href="{% url 'logout' %}">Logout</a>
+      </div>
+    </nav>
     <div class="container">
       <div class="grid">
         {% for object in object_list %}

@@ -5,6 +5,35 @@ body {
   color: #343a40;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #009200;
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #495057;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 10px;
+}
+
 .recipe-detail-container {
   max-width: 800px;
   margin: 20px auto;

@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fukui's Recipe App</title>
+    <link rel="stylesheet" href="{% static 'login/css/login.css' %}" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: url("{% static 'recipes/images/produce image.jpg' %}")
+          no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+        color: #fff;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2); /* Semi-transparent overlay */
+        z-index: 1;
+      }
+
+      .welcome-container {
+        text-align: center;
+        padding: 20px 20px 40px; /* Added extra padding to the bottom */
+        background: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* Slightly transparent white background */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 20px;
+        position: relative;
+        z-index: 2; /* Ensures content is above overlay */
+        color: #000; /* Text color */
+      }
+
+      .welcome-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #343a40;
+      }
+
+      .welcome-content p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: #6c757d;
+      }
+
+      .welcome-content form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* Space between form elements */
+      }
+
+      .welcome-content form input {
+        width: 80%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .welcome-content form button {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .welcome-content form button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="welcome-container">
+      <div class="welcome-content">
+        <h1>Login</h1>
+        <form action="" method="POST">
+          {% csrf_token %} {{ form.as_p }}
+          <!-- Assuming form is Django form instance with fields as <p> -->
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
