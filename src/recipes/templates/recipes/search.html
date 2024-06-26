@@ -4,8 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fukui's Recipe App</title>
-    <link rel="stylesheet" href="{% static 'recipes/css/styles.css' %}" />
+    <title>Recipe Search</title>
+    <link rel="stylesheet" href="{% static 'recipes/css/search.css' %}" />
   </head>
   <body>
     <nav class="navbar">
@@ -19,8 +19,22 @@
       </div>
     </nav>
     <div class="container">
+      <h1>Search for Recipes</h1>
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Search</button>
+      </form>
+
+      {% if recipes_df %}
+      <h2>Search Results</h2>
+      <div>{{ recipes_df|safe }}</div>
+      {% if chart %}
+      <div class="chart-container">
+        <img src="data:image/png;base64, {{ chart }}" alt="Chart" />
+      </div>
+      {% endif %}
       <div class="grid">
-        {% for object in object_list %}
+        {% for object in search_list %}
         <div class="card">
           <a href="{{ object.get_absolute_url }}">
             <img src="{{ object.pic.url }}" alt="{{ object.name }}" />
@@ -32,8 +46,11 @@
             </div>
           </a>
         </div>
+        {% empty %}
+        <p>No recipes found matching your search criteria.</p>
         {% endfor %}
       </div>
+      {% endif %}
     </div>
   </body>
 </html>

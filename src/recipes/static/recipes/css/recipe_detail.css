@@ -34,6 +34,32 @@ body {
   gap: 10px;
 }
 
+.navbar-search {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.navbar-search input[type="text"] {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.navbar-search button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.navbar-search button:hover {
+  background-color: #0056b3;
+}
+
 .recipe-detail-container {
   max-width: 800px;
   margin: 20px auto;

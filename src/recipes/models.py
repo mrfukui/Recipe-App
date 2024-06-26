@@ -26,6 +26,10 @@ class Recipe(models.Model):
             difficulty = 'Hard'
         return difficulty
     
+    def save(self, *args, **kwargs):
+        self.difficulty = self.calculate_difficulty()
+        super().save(*args, **kwargs)
+    
     def return_ingredients_as_list(self):
         if not self.ingredients:
             return []
