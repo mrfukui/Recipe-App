@@ -22,7 +22,7 @@ typing_extensions==4.12.2
 tzdata==2024.1
 whitenoise==6.7.0
 zipp==3.19.2
-psycopg2-binary==2.8.6
+psycopg2-binary==2.9.6
 setuptools>=65.5.0
 wheel>=0.40.0
 pip>=23.1.2
