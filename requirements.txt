@@ -1,5 +1,5 @@
 asgiref==3.8.1
-backports.zoneinfo==0.2.1
+backports.zoneinfo;python_version<"3.9"
 contourpy==1.1.1
 cycler==0.12.1
 dj-database-url==2.2.0
@@ -22,7 +22,7 @@ typing_extensions==4.12.2
 tzdata==2024.1
 whitenoise==6.7.0
 zipp==3.19.2
-psycopg2-binary==2.9.6
+psycopg2-binary==2.8.6
 setuptools>=65.5.0
 wheel>=0.40.0
 pip>=23.1.2
