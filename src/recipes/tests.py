@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from .models import Recipe
-from .forms import RecipesSearchForm
+from .forms import RecipesSearchForm, RecipeForm
 from django.urls import reverse
 from django.contrib.auth.models import User
 
@@ -90,3 +90,45 @@ class SearchViewAccessTests(TestCase):
 
         # Check if the response status code is 200 OK
         self.assertEqual(response.status_code, 200)
+
+class AddRecipeViewTests(TestCase):
+    def setUp(self):
+        # Create a test user
+        self.user = User.objects.create_user(username='testuser', password='password123')
+        self.client.login(username='testuser', password='password123')
+
+    def test_add_recipe_get(self):
+        # Test GET request to add_recipe view
+        response = self.client.get(reverse('recipes:add_recipe'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'recipes/add_recipe.html')
+        self.assertIsInstance(response.context['form'], RecipeForm)
+
+    def test_add_recipe_post_valid(self):
+        # Test POST request with valid form data
+        form_data = {
+            'name': 'Test Recipe',
+            'ingredients': 'Ingredient1, Ingredient2',
+            'cooking_time': 30,
+            'description': 'Test description',
+            'pic': '',  # You may need to adjust this depending on your form handling
+        }
+        response = self.client.post(reverse('recipes:add_recipe'), data=form_data)
+        
+        # Check redirection to recipe_added page upon successful form submission
+        self.assertRedirects(response, reverse('recipes:recipe_added'))
+        
+        # Verify that the recipe was created
+        self.assertTrue(Recipe.objects.filter(name='Test Recipe').exists())
+
+    def test_add_recipe_post_invalid(self):
+        # Test POST request with invalid form data
+        invalid_form_data = {
+            # Missing required fields or invalid data
+        }
+        response = self.client.post(reverse('recipes:add_recipe'), data=invalid_form_data)
+        
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'recipes/add_recipe.html')
+        self.assertIn('form', response.context)
+        self.assertTrue(response.context['form'].errors)

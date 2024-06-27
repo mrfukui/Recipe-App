@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Search</title>
+    <link rel="stylesheet" href="{% static 'recipes/css/about_me.css' %}" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="{% url 'recipes:recipe_list' %}" class="navbar-title"
+        >Fukui's Recipe App</a
+      >
+      <div class="navbar-links">
+        <a href="{% url 'recipes:recipe_list' %}">Home</a>
+        <a href="{% url 'recipes:search' %}">Statistics</a>
+        <a href="{% url 'recipes:add_recipe' %}">Add Recipe</a>
+        <a href="{% url 'recipes:about_me' %}">About Me</a>
+        <a href="{% url 'logout' %}">Logout</a>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>About Me</h1>
+      <p>Hi, I'm Michael Fukui. Welcome to my recipe app!</p>
+      <p>
+        Feel free to check out my portfolio and connect with me on social media:
+      </p>
+      <ul class="links-list">
+        <li>
+          <a href="https://mrfukui.github.io/portfolio-website/" target="_blank"
+            >Portfolio</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/mrfukui" target="_blank">GitHub</a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/michael-fukui-8aa80675/"
+            target="_blank"
+            >LinkedIn</a
+          >
+        </li>
+        <li>
+          Email:
+          <a href="mailto:mr.fukui@yahoo.com">mr.fukui@yahoo.com</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -14,11 +14,17 @@
       >
       <div class="navbar-links">
         <a href="{% url 'recipes:recipe_list' %}">Home</a>
-        <a href="{% url 'recipes:search' %}">Search</a>
+        <a href="{% url 'recipes:search' %}">Statistics</a>
+        <a href="{% url 'recipes:add_recipe' %}">Add Recipe</a>
+        <a href="{% url 'recipes:about_me' %}">About Me</a>
         <a href="{% url 'logout' %}">Logout</a>
       </div>
     </nav>
     <div class="container">
+      <form method="get" action="{% url 'recipes:recipe_list' %}">
+        <input type="text" name="q" placeholder="Search for recipes..." />
+        <button type="submit">Search</button>
+      </form>
       <div class="grid">
         {% for object in object_list %}
         <div class="card">
@@ -34,6 +40,9 @@
         </div>
         {% endfor %}
       </div>
+      {% if not object_list %}
+      <p>No recipes found matching your search criteria.</p>
+      {% endif %}
     </div>
   </body>
 </html>

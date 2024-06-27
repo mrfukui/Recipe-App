@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe Search</title>
-    <link rel="stylesheet" href="{% static 'recipes/css/search.css' %}" />
+    <link rel="stylesheet" href="{% static 'recipes/css/recipe_added.css' %}" />
   </head>
   <body>
     <nav class="navbar">
@@ -20,23 +20,11 @@
         <a href="{% url 'logout' %}">Logout</a>
       </div>
     </nav>
-    <div class="container">
-      <h1>Statistics</h1>
-      <form method="post">
-        {% csrf_token %} {{ form.as_p }}
-        <button type="submit">Search</button>
-      </form>
-
-      {% if no_results %}
-      <p>No recipes found matching your search criteria.</p>
-      {% elif recipes_df %}
-      <h2>Search Results</h2>
-      <div>{{ recipes_df|safe }}</div>
-      {% if chart %}
-      <div class="chart-container">
-        <img src="data:image/png;base64, {{ chart }}" alt="Chart" />
-      </div>
-      {% endif %} {% endif %}
+    <div class="confirmation-container">
+      <h1>Recipe Added Successfully</h1>
+      <a href="{% url 'recipes:recipe_list' %}" class="btn"
+        >Go to Recipe List</a
+      >
     </div>
   </body>
 </html>

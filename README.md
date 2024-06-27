@@ -31,6 +31,19 @@ Check out the live website [here!]()
 
 ## Get Started:
 
+Before you begin make sure you have the following software installed:
+
+- Python 3.8 or higher
+- Django 3
+
+1. Clone the repository [here](https://github.com/mrfukui/Recipe-App)
+
+2. Install the requirements with "pip install -r requirements.txt"
+
+3. Migrate the database with "python manage.py migrate"
+
+4. Run the local server with "python manage.py runserver"
+
 ## Acknowledgments:
 
 -CareerFoundry for guidance in building this app.
