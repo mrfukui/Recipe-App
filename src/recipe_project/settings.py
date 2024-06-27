@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-ALLOWED_HOSTS = ['https://fathomless-bayou-32636-f19964bde80a.herokuapp.com/']
+ALLOWED_HOSTS = ['https://fathomless-bayou-32636-f19964bde80a.herokuapp.com/', 'fathomless-bayou-32636-f19964bde80a.herokuapp.com']
 
 DEBUG = False
 
