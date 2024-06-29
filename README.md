@@ -6,12 +6,12 @@ This is a full stack web application using Python and the Django framework. Depl
 
 ## Live Website:
 
-Check out the live website [here!]()
+Check out the live website [here!](https://fathomless-bayou-32636-f19964bde80a.herokuapp.com/)
 
 ## Screenshots of Application:
 
-![Screenshot]()
-![Screenshot2]()
+![Screenshot](img/recipe-app-home-image.png)
+![Screenshot2](img/recipe-app-stat-image.png)
 
 ## Features
 
@@ -19,7 +19,7 @@ Check out the live website [here!]()
 - Users can add new recipes
 - Users can search recipes according to ingredients they enter
 - Includes a Django Admin dashboard
-- Shows statistics and visualizations based on trends
+- Shows statistics and visualizations based on search input
 
 ## Technologies Used:
 
