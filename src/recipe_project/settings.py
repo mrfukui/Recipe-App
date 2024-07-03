@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# ALLOWED_HOSTS = ['https://fathomless-bayou-32636-f19964bde80a.herokuapp.com/', 'fathomless-bayou-32636-f19964bde80a.herokuapp.com']
+ALLOWED_HOSTS = ['https://fathomless-bayou-32636-f19964bde80a.herokuapp.com/', 'fathomless-bayou-32636-f19964bde80a.herokuapp.com']
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=lambda v: [s.strip() for s in v.split(',')])
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=lambda v: [s.strip() for s in v.split(',')])
 
 # DEBUG = False
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -147,11 +147,11 @@ MEDIA_ROOT= BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Heroku: Update database configuration from $DATABASE_URL.
-# import dj_database_url
+import dj_database_url
 # DATABASES['default'].update(dj_database_url.config(conn_max_age=500, default=config('DATABASE_URL', default='')))
 
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # AWS S3 settings
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
