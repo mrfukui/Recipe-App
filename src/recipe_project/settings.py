@@ -148,7 +148,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
-# DATABASES['default'].update(dj_database_url.config(conn_max_age=500, default=config('DATABASE_URL', default='')))
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
@@ -166,5 +165,8 @@ MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
+
+AWS_DEFAULT_ACL = 'public-read'
+AWS_LOCATION = 'static'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
